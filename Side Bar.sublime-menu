@@ -19,11 +19,11 @@
 				"command": "stop_wifysync_app", "args": {"dirs": []}
 			},
 			{
-				"caption": "mac启动服务",
+				"caption": "启动服务",
 				"command": "mac_start_wifysync_app", "args": {"dirs": []}
 			},
 			{
-				"caption": "mac停止服务",
+				"caption": "停止服务",
 				"command": "mac_stop_wifysync_app", "args": {"dirs": []}
 			}
 		]
