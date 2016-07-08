@@ -342,6 +342,7 @@ class MacStartWifysyncAppCommand(sublime_plugin.WindowCommand):
         javaCmd='java'
         configPath=os.path.join(curDir,'tools')
         iosSyncCmd='nohup '+'"'+javaCmd+'" -jar "'+jarFile+'" "'+dirs[0]+'" "'+configPath+'"'+' &'
+        logging.info('MacStartWifysyncAppCommand cmd : '+ iosSyncCmd)
         os.system(iosSyncCmd);
         sublime.message_dialog(u'启动APICloud真机同步服务')
         getWifiInfo()
@@ -357,6 +358,7 @@ class MacStopWifysyncAppCommand(sublime_plugin.WindowCommand):
     def run(self, dirs):
         stopShellFile=os.path.join(curDir,'stop.sh')
         iosSyncCmd='/bin/sh'+' '+'"'+stopShellFile+'"'
+        logging.info('MacStopWifysyncAppCommand cmd : '+ iosSyncCmd)
         os.system(iosSyncCmd)
         if os.path.exists(wifi_config_file):
             os.remove(wifi_config_file)
