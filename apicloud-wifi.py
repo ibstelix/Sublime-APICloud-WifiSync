@@ -74,11 +74,11 @@ def getWidgetPath(path):
     return syncPath
 
 def getWifiInfo():
+    time.sleep(3.6)
     if not os.path.exists(wifi_config_file):
         sublime.message_dialog(u'请先启动真机同步服务')
         return        
     try:
-        time.sleep(1.2)
         with open(wifi_config_file) as f:
             config=json.load(f)
             websocket_port=config["websocket_port"]
@@ -267,7 +267,7 @@ class StartWifysyncAppCommand(sublime_plugin.WindowCommand):
         startSyncCmd='"'+exeCmdFile+'" -start'
         logging.info('StartWifysyncAppCommand cmd : '+ startSyncCmd)
         os.system(startSyncCmd)
-        sublime.message_dialog(u'启动APICloud真机同步服务')
+        # sublime.message_dialog(u'启动APICloud真机同步服务')
         getWifiInfo()
 
     def is_visible(self, dirs):
@@ -344,7 +344,7 @@ class MacStartWifysyncAppCommand(sublime_plugin.WindowCommand):
         iosSyncCmd='nohup '+'"'+javaCmd+'" -jar "'+jarFile+'" "'+dirs[0]+'" "'+configPath+'"'+' &'
         logging.info('MacStartWifysyncAppCommand cmd : '+ iosSyncCmd)
         os.system(iosSyncCmd);
-        sublime.message_dialog(u'启动APICloud真机同步服务')
+        # sublime.message_dialog(u'启动APICloud真机同步服务')
         getWifiInfo()
 
     def is_visible(self, dirs):
