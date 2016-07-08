@@ -74,7 +74,7 @@ def getWidgetPath(path):
     return syncPath
 
 def getWifiInfo():
-    time.sleep(3.6)
+    time.sleep(4)
     if not os.path.exists(wifi_config_file):
         sublime.message_dialog(u'请先启动真机同步服务')
         return        
