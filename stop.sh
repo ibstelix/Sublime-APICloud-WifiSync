@@ -1,3 +1,4 @@
 #!/bin/bash
-pid=`lsof -i tcp:8080|grep -v "COMMAND"|awk '{print $2}'`
+Name='wifisync.jar'
+pid=`ps -ef | grep $Name | grep -v "grep" | awk '{print $2}'`
 kill $pid
