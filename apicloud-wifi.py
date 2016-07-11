@@ -82,6 +82,9 @@ def getWifiInfo():
         with open(wifi_config_file) as f:
             config=json.load(f)
             websocket_port=config["websocket_port"]
+            if 0==websocket_port:
+                sublime.message_dialog(u'服务启动未完成，稍后请手动查看服务端口信息！')
+                return
             ip=config["ip"]
             ip_list=ip.split(',')
             if len(ip_list)==1:
