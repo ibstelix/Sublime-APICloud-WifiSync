@@ -4,9 +4,14 @@ import os,platform,re,logging,subprocess,json,sys,traceback,time
 import uuid,urllib.parse,urllib.request,json,urllib.parse
 
 curDir = os.path.dirname(os.path.realpath(__file__))
-settings = {}
-settings = sublime.load_settings("APICloudWifiSync.sublime-settings")
-#print(settings.get("envlang"))
+
+def plugin_loaded():
+    global settings
+    settings = {}
+    settings = sublime.load_settings("APICloudWifiSync.sublime-settings")
+    print("settings loaded!")
+    print(settings.get("envlang"))
+
 logging.basicConfig(level=logging.DEBUG,
             format='%(asctime)s %(message)s',
             datefmt='%Y %m %d  %H:%M:%S',
